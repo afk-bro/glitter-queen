@@ -10,7 +10,7 @@ type CartDrawerProps = {
 
 export function CartDrawer({ open, onClose }: CartDrawerProps) {
   return (
-    <Sheet open={open} onOpenChange={onClose}>
+    <Sheet open={open} onOpenChange={(isOpen) => { if (!isOpen) onClose() }}>
       <SheetContent side="right" className="w-80 bg-background">
         <SheetHeader>
           <SheetTitle className="font-display text-foreground">Your Bag</SheetTitle>

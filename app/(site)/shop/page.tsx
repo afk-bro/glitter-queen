@@ -1,4 +1,5 @@
 // app/(site)/shop/page.tsx
+import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import { getProducts } from '@/lib/products'
 import { PageHeader } from '@/components/shared/PageHeader'
@@ -19,7 +20,9 @@ export default function ShopPage() {
       />
       <div className="section-outer">
         <div className="section-inner">
-          <ShopClient products={products} />
+          <Suspense>
+            <ShopClient products={products} />
+          </Suspense>
         </div>
       </div>
     </>

@@ -3,7 +3,7 @@
 **Date:** 2026-04-07
 **Brand:** Glitter Queen Creative
 **Owner:** Emily
-**Stack:** Next.js 15, App Router, TypeScript, Tailwind CSS, shadcn/ui, next-themes
+**Stack:** Next.js 16.2.2, App Router, TypeScript, Tailwind CSS, shadcn/ui, next-themes
 **Hosting:** Vercel (free tier)
 **Phase:** 1 — Full UI, ecommerce placeholders, no backend
 
@@ -56,7 +56,8 @@ components/
                              ValueProps, LifestyleSection, Testimonials, NewsletterSignup
   shop/                   ← CollectionHeader, ProductGrid, ProductCard, FilterBar
   product/                ← ImageGallery, ProductInfo, RelatedProducts
-  shared/                 ← PageHeader, SectionHeading, CTABanner, EmptyState, CartDrawer
+  shared/                 ← PageHeader, SectionHeading, CTABanner, EmptyState
+  layout/                 ← AnnouncementBar, Navbar, MobileMenu, CartDrawer, Footer
   ui/                     ← shadcn/ui primitives (Button, Input, Textarea, Select, Accordion,
                              Breadcrumbs, Badge, Toast, Sheet)
 ```
@@ -467,7 +468,7 @@ Helper text under each form reinforces that it's intentional, not broken.
 **In scope:**
 - All 10 pages, fully built, responsive (mobile-first)
 - Dark / light mode toggle
-- 14 mock products across 4 categories
+- 14 mock products across 5 categories
 - Client-side category filtering on Shop
 - SEO metadata on all pages
 - Social links (Instagram, Facebook, TikTok)

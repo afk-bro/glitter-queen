@@ -24,6 +24,7 @@ const dmSans = DM_Sans({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://glitterqueencreative.com'),
   title: {
     default: 'Glitter Queen Creative',
     template: '%s — Glitter Queen Creative',

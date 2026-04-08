@@ -63,7 +63,7 @@ export function ProductInfo({ product }: { product: Product }) {
       <Button
         size="lg"
         className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 w-full"
-        onClick={() => toast('Shopping cart coming soon! 🛍️')}
+        onClick={() => toast('Shopping cart coming soon.')}
       >
         Add to Bag
       </Button>
