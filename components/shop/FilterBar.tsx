@@ -22,14 +22,14 @@ type FilterBarProps = {
 
 export function FilterBar({ active, onChange }: FilterBarProps) {
   return (
-    <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by category">
+    <div className="flex overflow-x-auto gap-2 pb-2 -mb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" role="group" aria-label="Filter by category">
       {FILTERS.map(filter => (
         <button
           key={filter.value}
           onClick={() => onChange(filter.value)}
           aria-pressed={active === filter.value}
           className={cn(
-            'px-4 py-1.5 rounded-full text-sm font-body border transition-colors duration-200',
+            'px-4 py-1.5 rounded-full text-sm font-body border transition-colors duration-200 shrink-0',
             active === filter.value
               ? 'bg-primary-soft text-primary border-primary'
               : 'bg-transparent text-muted-foreground border-border hover:border-primary/50 hover:text-foreground'

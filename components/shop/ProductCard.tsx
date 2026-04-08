@@ -18,7 +18,7 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
   return (
     <Link
       href={`/shop/${product.slug}`}
-      className="group block rounded-2xl overflow-hidden bg-card border border-border transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-md"
+      className="group block rounded-2xl overflow-hidden bg-card border border-border transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-primary/30"
     >
       <div className={`relative overflow-hidden bg-muted ${variant === 'compact' ? 'aspect-square' : 'aspect-[3/4]'}`}>
         <Image
