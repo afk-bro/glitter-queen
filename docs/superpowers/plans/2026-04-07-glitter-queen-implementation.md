@@ -137,7 +137,7 @@ Expected: Test packages appear in `devDependencies`.
 npx shadcn@latest init
 ```
 
-When prompted: Style → Default, Base color → Neutral, CSS variables → Yes.
+When prompted: Style → radix-nova (the new shadcn v4 default), Base color → Neutral, CSS variables → Yes.
 
 Expected: `components/ui/` directory created, `globals.css` updated with shadcn tokens, `components.json` created.
 
