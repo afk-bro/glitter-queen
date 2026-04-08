@@ -10,7 +10,7 @@ export function HeroSection() {
         src="/lifestyle/parasol-lifestyle.jpg"
         alt="Glitter Queen Creative"
         fill
-        className="object-cover object-top"
+        className="object-cover [object-position:50%_45%]"
         priority
         sizes="100vw"
       />
@@ -30,7 +30,7 @@ export function HeroSection() {
           <Button asChild size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-8">
             <Link href="/shop">Shop Now</Link>
           </Button>
-          <Button asChild variant="outline" size="lg" className="rounded-full border-white/70 text-white hover:bg-white/10 hover:border-white px-8">
+          <Button asChild variant="outline" size="lg" className="rounded-full border-white text-white bg-white/15 hover:bg-white/25 hover:border-white px-8">
             <Link href="/about">Our Story</Link>
           </Button>
         </div>
