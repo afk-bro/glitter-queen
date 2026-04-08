@@ -174,6 +174,32 @@ Allura used sparingly — hero headline and at most one section callout per page
 
 Gold (`--accent`) is never used for interactive elements — decorative only.
 
+**CTA consistency rule:** The primary call-to-action label is always "Shop Now" — never "Shop the Collection", "Browse", or other variants. Secondary CTAs may vary (e.g. "Our Story", "Meet Us").
+
+### Hover behavior standard
+
+| Element | Hover effect |
+|---|---|
+| Cards | `translate-y-[-2px]` + slight shadow increase (`shadow-md`) — no color change |
+| Primary / secondary buttons | Color shift only (lighten fill or darken border) — no movement |
+| Ghost buttons / nav links | Underline or opacity shift (`opacity-80`) |
+
+All transitions: `transition-all duration-200 ease-in-out`.
+
+### Mobile navigation behavior
+
+- Hamburger icon in Navbar triggers a full-screen overlay or slide-in drawer
+- Cart icon remains visible in the navbar at all times (not inside the drawer)
+- Menu links stacked vertically, large tap targets: Shop, About, Contact
+- Social icons (Instagram, Facebook, TikTok) displayed at the bottom of the menu
+- Closing: tap outside, swipe, or X button
+
+### Filter pill active state (Shop page)
+
+- **Active:** filled background (`--primary-soft`), `--primary` text, `--primary` border
+- **Inactive:** transparent background, `--text-muted` text, `--border` border
+- Transition between states: `200ms ease`
+
 ---
 
 ## 3. Data Model
@@ -181,13 +207,19 @@ Gold (`--accent`) is never used for interactive elements — decorative only.
 ### `types/product.ts`
 
 ```typescript
+export type ProductCategory =
+  | 'hats'
+  | 'parasols'
+  | 'earrings-jewelry'
+  | 'sunglasses'
+
 export type Product = {
   id: string
   slug: string
   name: string
   description: string
   price: number          // dollars, e.g. 48.00
-  category: string       // 'hats' | 'parasols' | 'earrings-jewelry' | 'sunglasses'
+  category: ProductCategory
   images: string[]       // filenames relative to /public/products/{slug}/
   featured?: boolean
   badge?: string         // e.g. "New", "Limited"
@@ -218,9 +250,9 @@ export type Product = {
 
 ```typescript
 import products from '@/data/products.json'
-import type { Product } from '@/types/product'
+import type { Product, ProductCategory } from '@/types/product'
 
-export function getProducts(category?: string): Product[]
+export function getProducts(category?: ProductCategory): Product[]
 export function getProductBySlug(slug: string): Product | undefined
 export function getFeaturedProducts(): Product[]
 export function getNewArrivals(): Product[]
@@ -228,6 +260,28 @@ export function getRelatedProducts(current: Product): Product[]  // same categor
 ```
 
 All functions are pure and synchronous. No network calls in Phase 1. Swap the import for an API call when Square is integrated in Phase 2.
+
+### `lib/utils.ts` — price formatting
+
+```typescript
+export function formatPrice(price: number): string {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  }).format(price)
+  // e.g. formatPrice(85) → "$85.00"
+}
+```
+
+**Rule:** Prices must always be rendered via `formatPrice(price)` in `ProductCard` and `ProductInfo`. Never render the raw number.
+
+### Product image fallback rules
+
+Applied in `ImageGallery` and `ProductCard`:
+
+- Always display `images[0]` as the default/primary image
+- If `images` is empty → show a branded placeholder image (`/public/products/placeholder.jpg`)
+- If `images.length === 1` → render main image only, hide thumbnail strip
 
 ---
 
@@ -257,7 +311,7 @@ Content: "Handcrafted Jewelry Made to Shine — 10% off your first order"
 - Filter bar: 4 category pills (All, Hats, Parasols, Earrings & Jewelry, Sunglasses) — client component, filters `products` state client-side
 - Sort dropdown — UI renders, no-op in Phase 1
 - `ProductGrid` with `variant="default"` (2-col mobile → 3-col desktop)
-- `EmptyState` if filter returns zero results
+- `EmptyState` if filter returns zero results — copy: "No products found in this category — try another filter ✨"
 - Load More placeholder button
 
 ### Product Detail (`/shop/[slug]`)
@@ -426,3 +480,14 @@ Helper text under each form reinforces that it's intentional, not broken.
 - Product inventory management
 - User accounts / auth
 - CMS for product management
+
+---
+
+## 11. Non-Goals (Phase 1)
+
+- No persistent cart state
+- No checkout flow
+- No authentication
+- No admin panel
+- No CMS integration
+- No backend form handling
