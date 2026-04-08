@@ -39,3 +39,17 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# git worktrees
+.worktrees/
+
+# raw source assets (processed copies live in public/)
+/logos/
+/products/
+
+# local brand/planning docs (not for version control)
+docs/*.txt
+docs/specs/
+
+# windows / wsl alternate data streams
+*:Zone.Identifier
