@@ -53,7 +53,7 @@ components/
   providers/
     theme-provider.tsx    ← next-themes wrapper
   home/                   ← HeroSection, FeaturedCollection, NewArrivals, BrandStoryPreview,
-                             ValueProps, LifestyleSection, Testimonials, CTABanner, NewsletterSignup
+                             ValueProps, LifestyleSection, Testimonials, NewsletterSignup
   shop/                   ← CollectionHeader, ProductGrid, ProductCard, FilterBar
   product/                ← ImageGallery, ProductInfo, RelatedProducts
   shared/                 ← PageHeader, SectionHeading, CTABanner, EmptyState, CartDrawer
@@ -264,7 +264,7 @@ Content: "Handcrafted Jewelry Made to Shine — 10% off your first order"
 
 - Breadcrumbs: Home → Shop → Product Name
 - Left: `ImageGallery` — main image + thumbnail strip, click to swap. No lightbox in Phase 1.
-- Right: Name (H1), `Badge` if present, price, description, size selector (if applicable), color selector (if applicable), quantity selector, "Add to Bag" button (toast: "Shopping cart coming soon"), shipping snippet
+- Right: Name (H1), `Badge` if present, price, description, quantity selector, "Add to Bag" button (toast: "Shopping cart coming soon"), shipping snippet
 - Below fold: `Accordion` — Details, Care Instructions, Shipping & Returns
 - `RelatedProducts` strip — 3 cards, same category, `variant="compact"`
 
