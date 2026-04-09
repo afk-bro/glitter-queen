@@ -4,6 +4,7 @@ import Link from 'next/link'
 import type { Product } from '@/types/product'
 import { formatPrice } from '@/lib/utils'
 import { Badge } from '@/components/ui/badge'
+import { QuickViewButton } from '@/components/shop/QuickViewButton'
 
 type ProductCardProps = {
   product: Product
@@ -25,7 +26,7 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
           src={imageSrc}
           alt={product.name}
           fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          className="object-cover transition-transform duration-300 ease-out group-hover:scale-105"
           sizes={
             variant === 'compact'
               ? '(max-width: 768px) 50vw, 25vw'
@@ -39,6 +40,9 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
             </Badge>
           </div>
         )}
+        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out flex items-end justify-center pb-4">
+          <QuickViewButton />
+        </div>
       </div>
       <div className={variant === 'compact' ? 'p-3' : 'p-4'}>
         <h3 className={`font-display text-foreground leading-[1.2] tracking-tight ${variant === 'compact' ? 'text-sm' : 'text-base'}`}>

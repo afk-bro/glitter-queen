@@ -49,4 +49,9 @@ describe('ProductCard', () => {
     const price = screen.getByText('$85.00')
     expect(price).toHaveClass('text-primary-dark')
   })
+
+  it('renders a Quick view button', () => {
+    render(<ProductCard product={mockProduct} />)
+    expect(screen.getByRole('button', { name: 'Quick view' })).toBeInTheDocument()
+  })
 })
