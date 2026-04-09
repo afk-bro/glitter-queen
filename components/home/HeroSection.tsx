@@ -27,7 +27,7 @@ export function HeroSection() {
           Jewelry and accessories made to shine — because everything looks better with a little sparkle.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 mt-2">
-          <Button asChild size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-8">
+          <Button asChild variant="cta" size="lg" className="rounded-full px-8">
             <Link href="/shop">Shop Now</Link>
           </Button>
           <Button asChild variant="outline" size="lg" className="rounded-full border-white text-white bg-white/15 hover:bg-white/25 hover:border-white px-8">
