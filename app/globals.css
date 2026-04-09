@@ -13,6 +13,12 @@
   --primary:            #a78bfa;
   --primary-foreground: #ffffff;
   --primary-soft:       #ede9fe;
+  --primary-dark:       #6d28d9;
+  --glow-cta:           color-mix(in srgb, var(--primary-dark) 35%, transparent);
+  --glow-cta-strong:    color-mix(in srgb, var(--primary-dark) 50%, transparent);
+  --glow-cta-soft:      color-mix(in srgb, var(--primary-dark) 25%, transparent);
+  --text-accent:        var(--primary-dark);
+  --text-brand:         var(--primary);
   --secondary:          #faf9f7;
   --secondary-foreground: #1a1a1a;
   --muted:              #f3efff;
@@ -37,6 +43,7 @@
   --primary:            #c4b5fd;
   --primary-foreground: #0b0b0f;
   --primary-soft:       #2e2a4a;
+  --primary-dark:       #7c3aed;
   --secondary:          #121217;
   --secondary-foreground: #f5f5f5;
   --muted:              #13101e;
@@ -62,6 +69,7 @@
   --color-primary:       var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary-soft:  var(--primary-soft);
+  --color-primary-dark:  var(--primary-dark);
   --color-secondary:     var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted:         var(--muted);
