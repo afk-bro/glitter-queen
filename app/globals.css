@@ -95,11 +95,17 @@
   }
   body {
     @apply bg-background text-foreground font-body antialiased;
-    background-image: linear-gradient(135deg, #fdf4ff 0%, #fff8fd 50%, #fdf0f8 100%);
-    background-attachment: fixed;
   }
-  .dark body {
-    background-image: linear-gradient(135deg, #120d1e 0%, #0b0b0f 50%, #150b15 100%);
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(135deg, #fdf4ff 0%, #fff8fd 50%, #fdf0f8 100%);
+    pointer-events: none;
+  }
+  .dark body::before {
+    background: linear-gradient(135deg, #120d1e 0%, #0b0b0f 50%, #150b15 100%);
   }
 }
 
