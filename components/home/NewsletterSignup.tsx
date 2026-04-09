@@ -33,7 +33,7 @@ export function NewsletterSignup() {
             className="rounded-full border-border bg-background font-body"
             aria-label="Email address"
           />
-          <Button type="submit" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 whitespace-nowrap">
+          <Button type="submit" variant="cta" className="rounded-full whitespace-nowrap">
             Subscribe
           </Button>
         </form>
