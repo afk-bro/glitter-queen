@@ -8,7 +8,7 @@ type PageHeaderProps = {
 
 export function PageHeader({ title, subtitle, align = 'center' }: PageHeaderProps) {
   return (
-    <div className={cn('section-outer bg-muted border-b border-border', align === 'center' && 'text-center')}>
+    <div className={cn('section-outer no-divider bg-muted border-b border-border', align === 'center' && 'text-center')}>
       <div className="section-inner">
         <h1 className="font-display text-4xl md:text-5xl text-foreground leading-[1.1] tracking-tight">
           {title}
