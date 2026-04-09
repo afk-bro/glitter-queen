@@ -15,7 +15,7 @@
   --primary-soft:       #ede9fe;
   --secondary:          #faf9f7;
   --secondary-foreground: #1a1a1a;
-  --muted:              #faf9f7;
+  --muted:              #f3efff;
   --muted-foreground:   #6b6b6b;
   --accent:             #c9a24a;
   --accent-foreground:  #1a1a1a;
@@ -39,7 +39,7 @@
   --primary-soft:       #2e2a4a;
   --secondary:          #121217;
   --secondary-foreground: #f5f5f5;
-  --muted:              #121217;
+  --muted:              #13101e;
   --muted-foreground:   #a1a1aa;
   --accent:             #d4af37;
   --accent-foreground:  #f5f5f5;
@@ -95,13 +95,18 @@
   }
   body {
     @apply bg-background text-foreground font-body antialiased;
+    background-image: linear-gradient(135deg, #fdf4ff 0%, #fff8fd 50%, #fdf0f8 100%);
+    background-attachment: fixed;
+  }
+  .dark body {
+    background-image: linear-gradient(135deg, #120d1e 0%, #0b0b0f 50%, #150b15 100%);
   }
 }
 
 /* ─── Layout utilities ─── */
 @layer utilities {
   .section-outer {
-    @apply py-20 md:py-28 px-6 md:px-10;
+    @apply py-12 md:py-16 px-6 md:px-10;
   }
   .section-inner {
     @apply mx-auto max-w-screen-xl;
