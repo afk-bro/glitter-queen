@@ -14,13 +14,13 @@ export function HeroSection() {
         priority
         sizes="100vw"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/65" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/50 to-black/80" />
 
       <div className="relative z-10 section-inner text-center flex flex-col items-center gap-6 px-6">
         <p className="font-body text-xs tracking-widest uppercase text-white/70">
           Handcrafted Accessories
         </p>
-        <h1 className="font-script text-6xl md:text-8xl text-white leading-none">
+        <h1 className="font-script text-6xl sm:text-7xl md:text-9xl text-white leading-none drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
           Glitz and glam<br className="hidden sm:block" /> for any occasion
         </h1>
         <p className="font-body text-lg text-white/80 max-w-md leading-7">
