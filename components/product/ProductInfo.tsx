@@ -19,7 +19,7 @@ export function ProductInfo({ product }: { product: Product }) {
   return (
     <div className="flex flex-col gap-6">
       {product.badge && (
-        <Badge className="w-fit bg-primary text-primary-foreground tracking-widest uppercase text-xs rounded-full">
+        <Badge className="w-fit bg-accent text-accent-foreground tracking-widest uppercase text-xs rounded-full">
           {product.badge}
         </Badge>
       )}
