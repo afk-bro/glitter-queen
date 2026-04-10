@@ -12,7 +12,7 @@ const buttonVariants = cva(
         default: "bg-primary text-primary-foreground [a]:hover:bg-primary/80 ring-1 ring-accent/40",
         outline:
           "border-border bg-background hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 ring-1 ring-accent/40",
-        cta: "bg-primary-dark text-white shadow-[0_4px_16px_var(--glow-cta)] hover:-translate-y-0.5 hover:shadow-[0_6px_24px_var(--glow-cta-strong)] focus-visible:ring-2 focus-visible:ring-primary-dark/50 active:translate-y-px active:shadow-[0_2px_8px_var(--glow-cta-soft)]",
+        cta: "bg-primary-vivid text-white shadow-[0_4px_16px_var(--glow-cta)] hover:-translate-y-0.5 hover:shadow-[0_6px_24px_var(--glow-cta-strong)] focus-visible:ring-2 focus-visible:ring-primary-vivid/50 active:translate-y-px active:shadow-[0_2px_8px_var(--glow-cta-soft)]",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80 aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
         ghost:
