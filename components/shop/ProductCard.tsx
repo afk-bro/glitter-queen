@@ -46,7 +46,7 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
           <h3 className={`font-display text-foreground leading-[1.2] tracking-tight ${variant === 'compact' ? 'text-sm' : 'text-base'}`}>
             {product.name}
           </h3>
-          <p className="mt-1 font-body text-primary-dark font-medium text-sm">
+          <p className="mt-1 font-body text-primary-vivid font-medium text-sm">
             {formatPrice(product.price)}
           </p>
         </div>

@@ -44,10 +44,10 @@ describe('ProductCard', () => {
     expect(screen.queryByText('New')).not.toBeInTheDocument()
   })
 
-  it('renders the price with text-primary-dark class for contrast', () => {
+  it('renders the price with text-primary-vivid class for contrast', () => {
     render(<ProductCard product={mockProduct} />)
     const price = screen.getByText('$85.00')
-    expect(price).toHaveClass('text-primary-dark')
+    expect(price).toHaveClass('text-primary-vivid')
   })
 
   it('renders a Quick view button', () => {

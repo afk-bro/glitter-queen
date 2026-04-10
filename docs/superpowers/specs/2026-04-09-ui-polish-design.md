@@ -11,17 +11,17 @@
 
 ```css
 /* :root */
---primary-dark: #6d28d9;          /* deep violet — action & emphasis only */
---text-accent: var(--primary-dark); /* semantic: readable purple on light bg */
+--primary-vivid: #6d28d9;         /* deep violet — action & emphasis only */
+--text-accent: var(--primary-vivid); /* semantic: readable purple on light bg */
 --text-brand:  var(--primary);      /* semantic: decorative lavender, not for body text */
 
 /* .dark */
---primary-dark: #7c3aed;          /* slightly lighter for dark card backgrounds */
+--primary-vivid: #7c3aed;         /* slightly lighter for dark card backgrounds */
 ```
 
 Register in `@theme inline`:
 ```css
---color-primary-dark: var(--primary-dark);
+--color-primary-vivid: var(--primary-vivid);
 ```
 
 ### AnnouncementBar (`components/layout/AnnouncementBar.tsx`)
@@ -31,7 +31,7 @@ Register in `@theme inline`:
 
 ### Product price (`components/shop/ProductCard.tsx`)
 
-- Change price color from `text-primary` → `text-primary-dark`
+- Change price color from `text-primary` → `text-primary-vivid`
 - Rationale: `#a78bfa` on white = ~2.5:1 (WCAG fail). `#6d28d9` on white = ~7.4:1 (WCAG AAA pass).
 
 ---
@@ -44,18 +44,18 @@ Add to `buttonVariants` CVA alongside `default` and `outline`:
 
 ```
 cta:
-  bg-primary-dark
+  bg-primary-vivid
   text-white
-  shadow-[0_4px_16px_color-mix(in_srgb,var(--primary-dark)_35%,transparent)]
+  shadow-[0_4px_16px_color-mix(in_srgb,var(--primary-vivid)_35%,transparent)]
 
   hover:-translate-y-0.5
-  hover:shadow-[0_6px_24px_color-mix(in_srgb,var(--primary-dark)_50%,transparent)]
+  hover:shadow-[0_6px_24px_color-mix(in_srgb,var(--primary-vivid)_50%,transparent)]
 
   focus-visible:ring-2
-  focus-visible:ring-primary-dark/50
+  focus-visible:ring-primary-vivid/50
 
   active:translate-y-px
-  active:shadow-[0_2px_8px_color-mix(in_srgb,var(--primary-dark)_25%,transparent)]
+  active:shadow-[0_2px_8px_color-mix(in_srgb,var(--primary-vivid)_25%,transparent)]
 ```
 
 ### Update call sites

@@ -6,7 +6,7 @@ describe('Button', () => {
   it('renders with cta variant classes', () => {
     render(<Button variant="cta">Shop Now</Button>)
     const btn = screen.getByRole('button', { name: 'Shop Now' })
-    expect(btn).toHaveClass('bg-primary-dark')
+    expect(btn).toHaveClass('bg-primary-vivid')
     expect(btn).toHaveClass('text-white')
   })
 })
