@@ -13,6 +13,7 @@ export function AnnouncementBar({ message, dismissible = true }: AnnouncementBar
   if (dismissed) return null
 
   return (
+    {/* text-[#1a1a1a] is hardcoded: --accent-foreground flips to light text in dark mode, failing contrast on gold */}
     <div className="relative bg-accent text-[#1a1a1a] text-center py-2 px-10 text-sm font-body tracking-wide">
       <span>{message}</span>
       {dismissible && (
