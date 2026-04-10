@@ -10,7 +10,7 @@ type CTABannerProps = {
 
 export function CTABanner({ heading, subtext, href, label }: CTABannerProps) {
   return (
-    <section className="section-outer bg-primary-soft">
+    <section className="section-outer bg-accent-soft">
       <div className="section-inner text-center">
         <h2 className="font-display text-3xl md:text-4xl text-foreground leading-[1.15] tracking-tight">
           {heading}
