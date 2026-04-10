@@ -35,7 +35,8 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
           />
           {product.badge && (
             <div className="absolute top-3 left-3">
-              <Badge className="bg-accent text-accent-foreground text-xs tracking-widest uppercase rounded-full">
+              {/* text-[#1a1a1a] hardcoded: --accent-foreground flips to light in dark mode, failing contrast on gold */}
+              <Badge className="bg-accent text-[#1a1a1a] text-xs tracking-widest uppercase rounded-full">
                 {product.badge}
               </Badge>
             </div>
