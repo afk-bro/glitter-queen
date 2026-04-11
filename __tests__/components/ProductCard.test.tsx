@@ -44,10 +44,17 @@ describe('ProductCard', () => {
     expect(screen.queryByText('New')).not.toBeInTheDocument()
   })
 
-  it('renders the price with text-primary-vivid class for contrast', () => {
+  it('renders the price with text-accent class', () => {
     render(<ProductCard product={mockProduct} />)
     const price = screen.getByText('$85.00')
-    expect(price).toHaveClass('text-primary-vivid')
+    expect(price).toHaveClass('text-accent')
+  })
+
+  it('renders badge with bg-accent and dark text classes', () => {
+    render(<ProductCard product={mockProduct} />)
+    const badge = screen.getByText('New')
+    expect(badge).toHaveClass('bg-accent')
+    expect(badge).toHaveClass('text-[#1a1a1a]')
   })
 
   it('renders a Quick view button', () => {

@@ -13,12 +13,13 @@ export function AnnouncementBar({ message, dismissible = true }: AnnouncementBar
   if (dismissed) return null
 
   return (
-    <div className="relative bg-primary text-primary-foreground text-center py-2 px-10 text-sm font-body tracking-wide">
+    <div className="relative bg-accent text-[#1a1a1a] text-center py-2 px-10 text-sm font-body tracking-wide">
+      {/* text-[#1a1a1a] is hardcoded: --accent-foreground flips to light text in dark mode, failing contrast on gold */}
       <span>{message}</span>
       {dismissible && (
         <button
           onClick={() => setDismissed(true)}
-          className="absolute right-3 top-1/2 -translate-y-1/2 text-primary-foreground opacity-80 hover:opacity-60 transition-opacity duration-200"
+          className="absolute right-3 top-1/2 -translate-y-1/2 text-[#1a1a1a] opacity-80 hover:opacity-60 transition-opacity duration-200"
           aria-label="Dismiss announcement"
         >
           <X className="w-4 h-4" />

@@ -35,7 +35,8 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
           />
           {product.badge && (
             <div className="absolute top-3 left-3">
-              <Badge className="bg-primary text-primary-foreground text-xs tracking-widest uppercase rounded-full">
+              {/* text-[#1a1a1a] hardcoded: --accent-foreground flips to light in dark mode, failing contrast on gold */}
+              <Badge className="bg-accent text-[#1a1a1a] text-xs tracking-widest uppercase rounded-full">
                 {product.badge}
               </Badge>
             </div>
@@ -46,7 +47,7 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
           <h3 className={`font-display text-foreground leading-[1.2] tracking-tight ${variant === 'compact' ? 'text-sm' : 'text-base'}`}>
             {product.name}
           </h3>
-          <p className="mt-1 font-body text-primary-vivid font-medium text-sm">
+          <p className="mt-1 font-body text-accent font-medium text-sm">
             {formatPrice(product.price)}
           </p>
         </div>

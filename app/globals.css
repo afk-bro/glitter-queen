@@ -131,7 +131,7 @@
     transform: translateX(-50%);
     width: 240px;
     height: 1px;
-    background: linear-gradient(to right, transparent, color-mix(in srgb, var(--accent) 55%, transparent) 50%, transparent);
+    background: linear-gradient(to right, transparent, color-mix(in srgb, var(--accent) 85%, transparent) 50%, transparent);
   }
   .section-inner {
     @apply mx-auto max-w-screen-xl;
