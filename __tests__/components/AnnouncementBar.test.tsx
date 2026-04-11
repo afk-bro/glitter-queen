@@ -18,6 +18,12 @@ describe('AnnouncementBar', () => {
     expect(container.firstChild).not.toHaveClass('bg-primary')
   })
 
+  it('uses hardcoded dark text for contrast on gold background', () => {
+    const { container } = render(<AnnouncementBar message="Test" dismissible />)
+    expect(container.firstChild).toHaveClass('text-[#1a1a1a]')
+    expect(screen.getByLabelText('Dismiss announcement')).toHaveClass('text-[#1a1a1a]')
+  })
+
   it('dismisses when the dismiss button is clicked', () => {
     render(<AnnouncementBar message="Test" dismissible />)
     fireEvent.click(screen.getByLabelText('Dismiss announcement'))

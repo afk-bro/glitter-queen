@@ -50,10 +50,11 @@ describe('ProductCard', () => {
     expect(price).toHaveClass('text-accent')
   })
 
-  it('renders badge with bg-accent class', () => {
+  it('renders badge with bg-accent and dark text classes', () => {
     render(<ProductCard product={mockProduct} />)
     const badge = screen.getByText('New')
     expect(badge).toHaveClass('bg-accent')
+    expect(badge).toHaveClass('text-[#1a1a1a]')
   })
 
   it('renders a Quick view button', () => {

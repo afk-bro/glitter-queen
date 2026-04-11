@@ -21,9 +21,9 @@ Gold is the *warm trim* of the site — the element the eye catches at edges, ac
 ### 1. Announcement Bar (`components/layout/AnnouncementBar.tsx`)
 
 **Before:** `bg-primary text-primary-foreground`
-**After:** `bg-accent text-accent-foreground`
+**After:** `bg-accent text-[#1a1a1a]`
 
-The dismiss button currently uses `text-primary-foreground opacity-80`. Change to `text-accent-foreground opacity-80`.
+The dismiss button currently uses `text-primary-foreground opacity-80`. Change to `text-[#1a1a1a] opacity-80`.
 
 Contrast check: `#1a1a1a` on `#c9a24a` ≈ 8.2:1 (WCAG AAA). Dark mode: `#d4af37` (bright gold) also needs dark text — `#f5f5f5` on `#d4af37` ≈ 1.9:1, which fails.
 
@@ -60,11 +60,11 @@ Pattern: any short all-caps label that sits above a section heading gets `text-a
 ### 4. Product Card Badges (`components/shop/ProductCard.tsx`)
 
 **Before:** `bg-primary text-primary-foreground`
-**After:** `bg-accent text-accent-foreground`
+**After:** `bg-accent text-[#1a1a1a]`
 
 Applies to the "NEW" and "LIMITED" badge overlays on product card images. Gold badges on photography are more visible than lavender and signal scarcity/freshness clearly.
 
-Same change applies to the badge in `components/product/ProductInfo.tsx` on the detail page.
+As with the announcement bar, use hardcoded `text-[#1a1a1a]` rather than `text-accent-foreground` — the foreground token flips to light text in dark mode, which fails contrast on gold. Same applies to the badge in `components/product/ProductInfo.tsx` on the detail page.
 
 ---
 
