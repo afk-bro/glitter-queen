@@ -20,7 +20,7 @@ export function ProductInfo({ product }: { product: Product }) {
     <div className="flex flex-col gap-6">
       {/* text-[#1a1a1a] hardcoded: --accent-foreground flips to light in dark mode, failing contrast on gold */}
       {product.badge && (
-        <Badge className="w-fit bg-accent text-[#1a1a1a] tracking-widest uppercase text-xs rounded-full">
+        <Badge className="w-fit gold-badge text-[#1a1a1a] tracking-widest uppercase text-xs rounded-full">
           {product.badge}
         </Badge>
       )}
