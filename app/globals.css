@@ -140,3 +140,40 @@
     @apply mt-12 md:mt-16;
   }
 }
+
+/* ─── Gold shine utilities ─── */
+@layer utilities {
+  .gold-badge {
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--accent) 70%, black) 0%,
+      color-mix(in srgb, var(--accent) 60%, white) 38%,
+      var(--accent) 55%,
+      color-mix(in srgb, var(--accent) 75%, black) 100%
+    );
+  }
+  .gold-shimmer {
+    background: linear-gradient(
+      105deg,
+      var(--accent) 35%,
+      color-mix(in srgb, var(--accent) 40%, white) 46%,
+      color-mix(in srgb, var(--accent) 5%, white)  50%,
+      color-mix(in srgb, var(--accent) 40%, white) 54%,
+      var(--accent) 65%
+    );
+    background-size: 300% 100%;
+    animation: gold-shimmer 4s linear infinite;
+  }
+}
+
+@keyframes gold-shimmer {
+  0%   { background-position: right center; }
+  100% { background-position: left center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gold-shimmer {
+    animation: none;
+    background-size: 100% 100%;
+  }
+}

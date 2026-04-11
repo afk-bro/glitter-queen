@@ -8,13 +8,14 @@ describe('AnnouncementBar', () => {
     expect(screen.getByText('Free shipping over $50')).toBeInTheDocument()
   })
 
-  it('has bg-accent class on root element', () => {
+  it('has gold-shimmer class on root element', () => {
     const { container } = render(<AnnouncementBar message="Test" />)
-    expect(container.firstChild).toHaveClass('bg-accent')
+    expect(container.firstChild).toHaveClass('gold-shimmer')
   })
 
-  it('does not have bg-primary class', () => {
+  it('does not have bg-accent or bg-primary class', () => {
     const { container } = render(<AnnouncementBar message="Test" />)
+    expect(container.firstChild).not.toHaveClass('bg-accent')
     expect(container.firstChild).not.toHaveClass('bg-primary')
   })
 
