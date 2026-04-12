@@ -1,6 +1,7 @@
 // components/shop/FilterBar.tsx
 'use client'
 
+import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import type { ProductCategory } from '@/types/product'
 
@@ -38,6 +39,12 @@ export function FilterBar({ active, onChange }: FilterBarProps) {
           {filter.label}
         </button>
       ))}
+      <Link
+        href="/favorites"
+        className="px-4 py-1.5 rounded-full text-sm font-body border border-border text-muted-foreground hover:border-primary/50 hover:text-foreground transition-colors duration-200 shrink-0"
+      >
+        Favourites
+      </Link>
     </div>
   )
 }
