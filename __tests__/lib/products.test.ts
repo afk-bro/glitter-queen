@@ -6,11 +6,12 @@ import {
   getFeaturedProducts,
   getNewArrivals,
   getRelatedProducts,
+  getFavorites,
 } from '@/lib/products'
 
 describe('getProducts', () => {
-  it('returns all 14 products when no category provided', () => {
-    expect(getProducts()).toHaveLength(14)
+  it('returns all 24 products when no category provided', () => {
+    expect(getProducts()).toHaveLength(24)
   })
 
   it('returns only hats', () => {
@@ -74,5 +75,21 @@ describe('getRelatedProducts', () => {
     const product = getProductBySlug('rainbow-parasol')!
     const result = getRelatedProducts(product)
     expect(result.every(p => p.category === 'parasols')).toBe(true)
+  })
+})
+
+describe('getFavorites', () => {
+  it('returns only products with favorite true', () => {
+    const result = getFavorites()
+    expect(result.every(p => p.favorite === true)).toBe(true)
+  })
+
+  it('returns at least one product', () => {
+    expect(getFavorites().length).toBeGreaterThan(0)
+  })
+
+  it('includes cookie-monster-rhinestone-cap', () => {
+    const slugs = getFavorites().map(p => p.slug)
+    expect(slugs).toContain('cookie-monster-rhinestone-cap')
   })
 })
