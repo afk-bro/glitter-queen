@@ -88,7 +88,12 @@ describe('getFavorites', () => {
     expect(getFavorites().length).toBeGreaterThan(0)
   })
 
-  it('returns 15 products (all favorites in the dataset)', () => {
-    expect(getFavorites()).toHaveLength(15)
+  it('returns all products marked as favorites in the dataset', () => {
+    const result = getFavorites().map(p => p.slug).sort()
+    const expected = getProducts()
+      .filter(p => p.favorite === true)
+      .map(p => p.slug)
+      .sort()
+    expect(result).toEqual(expected)
   })
 })
