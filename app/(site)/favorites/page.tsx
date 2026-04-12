@@ -16,7 +16,7 @@ export default function FavouritesPage() {
         title="Favourites"
         subtitle="Our most-loved pieces, curated by the maker."
       />
-      <div className="section-outer no-divider">
+      <div className="section-outer">
         <div className="section-inner">
           <ProductGrid products={products} />
         </div>
