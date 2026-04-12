@@ -56,16 +56,14 @@ export function Navbar() {
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
-            <Link href="/shop" className={navLinkClass}>Shop</Link>
-
             <div className="relative">
               <button
                 onClick={() => setCategoriesOpen(o => !o)}
                 className={`${navLinkClass} flex items-center gap-1`}
                 aria-expanded={categoriesOpen}
-                aria-controls="categories-dropdown"
+                aria-controls="shop-dropdown"
               >
-                Categories <ChevronDown className="w-3.5 h-3.5" />
+                Shop <ChevronDown className="w-3.5 h-3.5" />
               </button>
               {categoriesOpen && (
                 <>
@@ -74,7 +72,15 @@ export function Navbar() {
                     onClick={() => setCategoriesOpen(false)}
                     aria-hidden
                   />
-                  <div id="categories-dropdown" className="absolute top-full left-0 mt-2 w-44 bg-popover border border-border rounded-lg shadow-lg z-50 py-1">
+                  <div id="shop-dropdown" className="absolute top-full left-0 mt-2 w-44 bg-popover border border-border rounded-lg shadow-lg z-50 py-1">
+                    <Link
+                      href="/shop"
+                      onClick={() => setCategoriesOpen(false)}
+                      className="block px-4 py-2 text-sm font-body text-foreground hover:text-primary hover:bg-muted transition-colors"
+                    >
+                      All Products
+                    </Link>
+                    <div className="my-1 border-t border-border" />
                     {CATEGORIES.map(({ href, label }) => (
                       <Link
                         key={href}
