@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ShoppingBag, Menu, Sun, Moon, ChevronDown } from 'lucide-react'
 import { useTheme } from 'next-themes'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { MobileMenu } from './MobileMenu'
 import { CartDrawer } from './CartDrawer'
 
@@ -22,14 +22,24 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [cartOpen, setCartOpen] = useState(false)
   const [categoriesOpen, setCategoriesOpen] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => setMounted(true), [])
 
   useEffect(() => {
     if (!categoriesOpen) return
-    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') setCategoriesOpen(false) }
-    document.addEventListener('keydown', handler)
-    return () => document.removeEventListener('keydown', handler)
+    const handleKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setCategoriesOpen(false) }
+    const handleClick = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setCategoriesOpen(false)
+      }
+    }
+    document.addEventListener('keydown', handleKey)
+    document.addEventListener('mousedown', handleClick)
+    return () => {
+      document.removeEventListener('keydown', handleKey)
+      document.removeEventListener('mousedown', handleClick)
+    }
   }, [categoriesOpen])
 
   const logoSrc = mounted && resolvedTheme === 'dark'
@@ -56,7 +66,7 @@ export function Navbar() {
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
-            <div className="relative">
+            <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setCategoriesOpen(o => !o)}
                 className={`${navLinkClass} flex items-center gap-1`}
@@ -66,12 +76,6 @@ export function Navbar() {
                 Shop <ChevronDown className="w-3.5 h-3.5" />
               </button>
               {categoriesOpen && (
-                <>
-                  <div
-                    className="fixed inset-0 z-40"
-                    onClick={() => setCategoriesOpen(false)}
-                    aria-hidden
-                  />
                   <div id="shop-dropdown" className="absolute top-full left-0 mt-2 w-44 bg-popover border border-border rounded-lg shadow-lg z-50 py-1">
                     <Link
                       href="/shop"
@@ -92,7 +96,6 @@ export function Navbar() {
                       </Link>
                     ))}
                   </div>
-                </>
               )}
             </div>
 
