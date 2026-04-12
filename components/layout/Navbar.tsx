@@ -63,18 +63,17 @@ export function Navbar() {
                 onClick={() => setCategoriesOpen(o => !o)}
                 className={`${navLinkClass} flex items-center gap-1`}
                 aria-expanded={categoriesOpen}
-                aria-haspopup="true"
               >
                 Categories <ChevronDown className="w-3.5 h-3.5" />
               </button>
               {categoriesOpen && (
                 <>
                   <div
-                    className="fixed inset-0 z-30"
+                    className="fixed inset-0 z-40"
                     onClick={() => setCategoriesOpen(false)}
                     aria-hidden
                   />
-                  <div className="absolute top-full left-0 mt-2 w-44 bg-popover border border-border rounded-lg shadow-lg z-40 py-1">
+                  <div className="absolute top-full left-0 mt-2 w-44 bg-popover border border-border rounded-lg shadow-lg z-50 py-1">
                     {CATEGORIES.map(({ href, label }) => (
                       <Link
                         key={href}
