@@ -37,7 +37,7 @@ export default async function Page({ params }: Props) {
 
 ### Data Layer
 
-Products are stored in `data/products.json` and accessed through pure synchronous functions in `lib/products.ts`. There is no API, no database, no server actions. `getProducts()`, `getProductBySlug()`, `getFeaturedProducts()`, `getNewArrivals()`, and `getRelatedProducts()` are the full data API.
+Products are stored in `data/products.json` and accessed through pure synchronous functions in `lib/products.ts`. There is no API, no database, no server actions. `getProducts()`, `getProductBySlug()`, `getFeaturedProducts()`, `getFavorites()`, `getNewArrivals()`, and `getRelatedProducts()` are the full data API.
 
 Product images are served from `public/products/{slug}/{filename}`. The `images` array in each product object contains filenames (e.g. `["1.jpg"]`), not full paths.
 
