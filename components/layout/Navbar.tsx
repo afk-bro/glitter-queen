@@ -2,23 +2,41 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { ShoppingBag, Menu, Sun, Moon } from 'lucide-react'
+import { ShoppingBag, Menu, Sun, Moon, ChevronDown } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { useState, useEffect } from 'react'
 import { MobileMenu } from './MobileMenu'
 import { CartDrawer } from './CartDrawer'
+
+const CATEGORIES = [
+  { href: '/shop?category=parasols',          label: 'Parasols' },
+  { href: '/shop?category=hats',              label: 'Hats' },
+  { href: '/shop?category=sunglasses',        label: 'Sunglasses' },
+  { href: '/shop?category=earrings-jewelry',  label: 'Jewelry' },
+  { href: '/shop?category=apparel',           label: 'Apparel' },
+]
 
 export function Navbar() {
   const { resolvedTheme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [cartOpen, setCartOpen] = useState(false)
+  const [categoriesOpen, setCategoriesOpen] = useState(false)
 
   useEffect(() => setMounted(true), [])
+
+  useEffect(() => {
+    if (!categoriesOpen) return
+    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') setCategoriesOpen(false) }
+    document.addEventListener('keydown', handler)
+    return () => document.removeEventListener('keydown', handler)
+  }, [categoriesOpen])
 
   const logoSrc = mounted && resolvedTheme === 'dark'
     ? '/logos/gq_dark_logo.jpg'
     : '/logos/gq_light_logo.jpg'
+
+  const navLinkClass = "font-body text-sm text-foreground hover:text-primary transition-colors underline-offset-4 hover:underline"
 
   return (
     <>
@@ -38,19 +56,43 @@ export function Navbar() {
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
-            {[
-              { href: '/shop', label: 'Shop' },
-              { href: '/about', label: 'About' },
-              { href: '/contact', label: 'Contact' },
-            ].map(({ href, label }) => (
-              <Link
-                key={href}
-                href={href}
-                className="font-body text-sm text-foreground hover:text-primary transition-colors underline-offset-4 hover:underline"
+            <Link href="/shop" className={navLinkClass}>Shop</Link>
+
+            <div className="relative">
+              <button
+                onClick={() => setCategoriesOpen(o => !o)}
+                className={`${navLinkClass} flex items-center gap-1`}
+                aria-expanded={categoriesOpen}
+                aria-controls="categories-dropdown"
               >
-                {label}
-              </Link>
-            ))}
+                Categories <ChevronDown className="w-3.5 h-3.5" />
+              </button>
+              {categoriesOpen && (
+                <>
+                  <div
+                    className="fixed inset-0 z-40"
+                    onClick={() => setCategoriesOpen(false)}
+                    aria-hidden
+                  />
+                  <div id="categories-dropdown" className="absolute top-full left-0 mt-2 w-44 bg-popover border border-border rounded-lg shadow-lg z-50 py-1">
+                    {CATEGORIES.map(({ href, label }) => (
+                      <Link
+                        key={href}
+                        href={href}
+                        onClick={() => setCategoriesOpen(false)}
+                        className="block px-4 py-2 text-sm font-body text-foreground hover:text-primary hover:bg-muted transition-colors"
+                      >
+                        {label}
+                      </Link>
+                    ))}
+                  </div>
+                </>
+              )}
+            </div>
+
+            <Link href="/favorites" className={navLinkClass}>Favourites</Link>
+            <Link href="/about" className={navLinkClass}>About</Link>
+            <Link href="/contact" className={navLinkClass}>Contact</Link>
           </div>
 
           <div className="flex items-center gap-1">

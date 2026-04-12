@@ -14,6 +14,7 @@ export type Product = {
   category: ProductCategory
   images: string[]   // filenames relative to /public/products/{slug}/
   featured?: boolean
+  favorite?: boolean
   badge?: string     // e.g. "New", "Limited"
   inStock?: boolean
 }
