@@ -39,9 +39,9 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
     return () => document.removeEventListener('keydown', handler)
   }, [open, onClose])
 
-  if (!open) return null
-
   const mainLinkClass = "font-display text-2xl text-foreground hover:text-primary transition-colors leading-none"
+
+  if (!open) return null
 
   return (
     <div className="fixed inset-0 z-50 flex">
