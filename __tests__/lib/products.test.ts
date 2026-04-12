@@ -88,8 +88,7 @@ describe('getFavorites', () => {
     expect(getFavorites().length).toBeGreaterThan(0)
   })
 
-  it('includes cookie-monster-rhinestone-cap', () => {
-    const slugs = getFavorites().map(p => p.slug)
-    expect(slugs).toContain('cookie-monster-rhinestone-cap')
+  it('returns 15 products (all favorites in the dataset)', () => {
+    expect(getFavorites()).toHaveLength(15)
   })
 })

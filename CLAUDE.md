@@ -27,7 +27,7 @@ This is a **statically generated Next.js 16.2.2 storefront** using the App Route
 
 Routes live under `app/(site)/` — the `(site)` route group applies the shared layout (AnnouncementBar → Navbar → `<main>` → Footer) without affecting URLs. The root `app/layout.tsx` handles fonts, theme provider, and the global Sonner toaster.
 
-Dynamic product pages at `/shop/[slug]` use `generateStaticParams` to pre-render all 14 product slugs at build time. Because this is Next.js 16, `params` is a `Promise` and must be awaited:
+Dynamic product pages at `/shop/[slug]` use `generateStaticParams` to pre-render all 24 product slugs at build time. Because this is Next.js 16, `params` is a `Promise` and must be awaited:
 
 ```ts
 type Props = { params: Promise<{ slug: string }> }
