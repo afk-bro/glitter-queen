@@ -18,6 +18,14 @@ const FacebookIcon = () => (
   </svg>
 )
 
+const CATEGORIES = [
+  { href: '/shop?category=parasols',          label: 'Parasols' },
+  { href: '/shop?category=hats',              label: 'Hats' },
+  { href: '/shop?category=sunglasses',        label: 'Sunglasses' },
+  { href: '/shop?category=earrings-jewelry',  label: 'Jewelry' },
+  { href: '/shop?category=apparel',           label: 'Apparel' },
+]
+
 type MobileMenuProps = {
   open: boolean
   onClose: () => void
@@ -33,6 +41,8 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
 
   if (!open) return null
 
+  const mainLinkClass = "font-display text-2xl text-foreground hover:text-primary transition-colors leading-none"
+
   return (
     <div className="fixed inset-0 z-50 flex">
       <div className="absolute inset-0 bg-black/50" onClick={onClose} aria-hidden={true} />
@@ -46,20 +56,27 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
         </button>
 
         <nav className="flex flex-col gap-7 mt-14" aria-label="Mobile navigation">
-          {[
-            { href: '/shop', label: 'Shop' },
-            { href: '/about', label: 'About' },
-            { href: '/contact', label: 'Contact' },
-          ].map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              onClick={onClose}
-              className="font-display text-2xl text-foreground hover:text-primary transition-colors leading-none"
-            >
-              {label}
-            </Link>
-          ))}
+          <Link href="/shop" onClick={onClose} className={mainLinkClass}>Shop</Link>
+
+          <div className="flex flex-col gap-3">
+            <span className="font-body text-xs uppercase tracking-widest text-muted-foreground">
+              Categories
+            </span>
+            {CATEGORIES.map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
+                onClick={onClose}
+                className="font-body text-lg text-foreground hover:text-primary transition-colors leading-none pl-2"
+              >
+                {label}
+              </Link>
+            ))}
+          </div>
+
+          <Link href="/favorites" onClick={onClose} className={mainLinkClass}>Favourites</Link>
+          <Link href="/about" onClick={onClose} className={mainLinkClass}>About</Link>
+          <Link href="/contact" onClick={onClose} className={mainLinkClass}>Contact</Link>
         </nav>
 
         <div className="mt-auto flex items-center gap-5 pb-4">
